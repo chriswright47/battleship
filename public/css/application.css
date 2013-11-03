@@ -48,3 +48,9 @@ a:hover {
 
 }
 
+#game-status {
+  width: 400px;
+  float:right;
+  margin-right: 100px;
+
+}

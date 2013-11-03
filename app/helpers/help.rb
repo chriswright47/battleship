@@ -5,4 +5,8 @@ helpers do
     return hits.inject(:+)
   end
 
+  def ship_sunk?(ship)
+    ship_hits(ship) >= ship.length
+  end
+
 end

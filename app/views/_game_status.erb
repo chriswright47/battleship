@@ -1,0 +1,9 @@
+<ul>
+  <% @ships.each do |ship| %>
+    <% if ship_sunk?(ship) %>
+     <li>You have sunk <%= ship.name %>!</li>
+     <br>
+    <% end %>
+  <% end %>
+</ul>
+

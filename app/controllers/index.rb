@@ -16,13 +16,12 @@ post '/shot' do
     space.update_attribute('hit', 1)
     ship = Ship.find(space.ship_id)
     ship.increment!(:hits)
-    if (ship.hits >= ship.length)
-      #sunk the ship
-    end
+    redirect '/game' if ship_sunk?(ship)
   else 
     space.update_attribute('display', 'o')
   end
-  puts '**********************************************' if request.xhr?
+
+  puts 'handled ' if request.xhr?
 end
 
 
@@ -31,4 +30,9 @@ get '/reset' do
   Space.update_all(hit: 0)
   Ship.update_all(hits: 0)
   redirect '/game'
+end
+
+get '/game_status' do
+  @ships = Ship.all
+  erb :_game_status, layout: false
 end
