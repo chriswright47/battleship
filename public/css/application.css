@@ -1,9 +1,50 @@
 .container {
   margin: 20px auto;
+  margin-left: 100px;
   width: 600px;
-  padding: 0px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   border: 1px dotted black;
+  float:left;
 }
 th {
   text-align: left;
 }
+
+.main-title {
+  margin: 20px auto;
+  width: 200px;
+  color: #0000CC;
+}
+
+td {
+  text-align: left;
+}
+
+
+.centered {
+  text-align: center;
+}
+
+td {    
+
+    display: block;
+    float: left;
+    padding: 10px 0;
+    margin-right:50px;
+    background: white;
+    width: 10px;
+}
+td:last-child {
+    margin-right: 0;
+}
+
+a {
+  text-decoration: none;  
+  color: #0000CC;
+}
+
+a:hover {
+  color: deeppink;
+
+}
+
