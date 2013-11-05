@@ -1,7 +1,12 @@
 <ul>
+  <% @boards.each do |board| %>
+    <% if board_finished(board) %>
+    <h1><%= board.owner %> Board is finished!</h1>
+    <% end %>
+
   <% @ships.each do |ship| %>
     <% if ship_sunk?(ship) %>
-     <li>You have sunk <%= ship.name %>!</li>
+     <li><%= ship.name %> has been sunk!</li>
      <br>
     <% end %>
   <% end %>

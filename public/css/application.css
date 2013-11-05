@@ -19,7 +19,9 @@ th {
 td {
   text-align: left;
 }
-
+.game-board {
+  display: none;
+}
 
 .centered {
   text-align: center;

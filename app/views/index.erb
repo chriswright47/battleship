@@ -1,7 +1,36 @@
 <div class="container">
 
-  <h2>Welcome to battleship!</h2>
+<!-- Trying to make one homescreen and gameplay screen -->
 
-
-<a href="/game"><button>Begin the game</button></a>
+<div class='intro'>
+<button>Begin the game</button>
 </div>
+<div class='last-shot'><h4></h4></div>
+<div class='game-board'>
+<p id='reset'><a href="/"><button>QUIT</button></a></p>
+<!-- This is bad!!! need to get this logic in the controller maybe? -->
+<% Game.last.boards.all.each do |board| %>
+<h2 class="centered"><%= board.owner.capitalize %> Board</h2>
+<table>
+  <% board.spaces.order('location').each do |space| %>
+    <% if space.location % 10 == 1 %>
+      <tr>
+    <% end %>
+      <% if space.ship_id %>
+      <td><a class='space' data-hit='X' data-location='<%= space.location %>' data-board_id='<%= board.id %>' href="/shot/<%= space.location %>/<%= board.id %>"><%= space.display %></a></td>
+      <% else %>
+      <td><a class='space' data-hit='o' data-location='<%= space.location %>' data-board_id='<%= board.id %>' href="/shot/<%= space.location %>/<%= board.id %>"><%= space.display %></a></td>
+      <% end %>
+    <% if space.location % 10 == 0 %>
+    </tr>
+    <% end %>
+  <% end %>
+  </table>
+  <br><br><br><br>
+<% end %>
+</div>
+
+</div>
+<h3 id="game-status">
+
+</h3>
